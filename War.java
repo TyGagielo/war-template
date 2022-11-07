@@ -15,10 +15,21 @@ public class War
     public War()
     {
         // Initializations here...
+        Deck mainD = new Deck();
         
+        mainD.initializeNewDeck();
+        
+        Deck[] hands = mainD.dealDeck();
         
         // ...then run the event loop
         this.runEventLoop();
+    }
+    
+    /**
+     * deletes cards from both decks
+     */
+    public void deleteCards(Card c){
+        
     }
     
     /**
@@ -26,7 +37,7 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
-
+         
     }
     
     /**
