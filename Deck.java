@@ -62,6 +62,7 @@ public class Deck
             halves[idx ? 0 : 1].addCardToDeck(this.dealCardFromDeck());
             idx = !idx;
         }
+
         return halves;
     }
     
@@ -70,8 +71,13 @@ public class Deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
-        // To be written 
-        return null;
+        Card bottomC = this.cards.get(this.cards.size()-1);
+        
+        this.cards.remove(this.cards.size()-1);
+        
+        System.out.println(bottomC.getFace());
+        
+        return bottomC;
     }
     
     /**

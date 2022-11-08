@@ -21,8 +21,10 @@ public class War
         
         Deck[] hands = mainD.dealDeck();
         
+        System.out.println(hands[0].getDeckSize());
+        System.out.println(hands[1].getDeckSize());
         // ...then run the event loop
-        this.runEventLoop();
+        //this.runEventLoop();
     }
     
     /**
