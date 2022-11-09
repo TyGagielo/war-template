@@ -75,8 +75,6 @@ public class Deck
         
         this.cards.remove(this.cards.size()-1);
         
-        System.out.println(bottomC.getFace());
-        
         return bottomC;
     }
     
@@ -85,7 +83,14 @@ public class Deck
      * @param cardToAdd: Card to add to this deck
      */
     public void addCardToDeck(Card cardToAdd) {
-        // To be written
+        cards.add(cardToAdd);
+    }
+    
+    /**
+     * deletes cards from both decks
+     */
+    public void deleteCards(Card c){
+        
     }
     
 }

@@ -1,3 +1,4 @@
+import java.util.*;
 
 /**
  * War game class
@@ -28,18 +29,25 @@ public class War
     }
     
     /**
-     * deletes cards from both decks
-     */
-    public void deleteCards(Card c){
-        
-    }
-    
-    /**
      * This is the game's event loop. The code in here should come
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
+         ArrayList<Card> battlingCards = new ArrayList<Card>();
          
+         if(Deck.halves[1].cards.get(this.cards.size-1) > Deck.hands[0].get(this.cards.size-1)){
+             
+             battlingCards.add(Deck.hands[1].cards.get(this.cards.size-1));
+                 
+         } else{
+             if (Deck.halves[1].cards.get(this.cards.size-1) > Deck.hands[0].get(this.cards.size-1)){
+                 
+                 battlingCards.add(Deck.hands[1].cards.get(this.cards.size-1));
+                 
+                 
+                 
+             }
+         }
     }
     
     /**
