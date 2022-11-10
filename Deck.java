@@ -67,13 +67,22 @@ public class Deck
     }
     
     /**
-     * Deal the top card of the deck and remove it from the deck
+     * Deal the bottom card of the deck and remove it from the deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
-        Card bottomC = this.cards.get(this.cards.size()-1);
+        Card bottomC = this.cards.get(0);
         
-        this.cards.remove(this.cards.size()-1);
+        this.cards.remove(0);
+        
+        return bottomC;
+    }
+    
+    /**
+     * gets card from 
+     */
+    public Card getCard(){
+        Card bottomC = this.cards.get(0);
         
         return bottomC;
     }
@@ -84,6 +93,14 @@ public class Deck
      */
     public void addCardToDeck(Card cardToAdd) {
         cards.add(cardToAdd);
+    }
+    
+    /**
+     * Adds a group of cards from an arraylist to the deck
+     * @param battlers: cards being added
+     */
+    public void addCardGroup(ArrayList<Card> battlers){
+        cards.addAll(battlers);
     }
     
     /**

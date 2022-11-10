@@ -14,8 +14,11 @@ public class War
      * Run the event loop after you've done the initializations
      */
     
+    private ArrayList<Card> battlingCards = new ArrayList<Card>();
+    
     private Deck mainD;
-        
+    private Deck[] hands;
+    
     public War()
     {
         // Initializations here...
@@ -23,12 +26,18 @@ public class War
         
         mainD.initializeNewDeck();
         
-        Deck[] hands = mainD.dealDeck();
+        hands = mainD.dealDeck();
         
+        System.out.println("before:");
         System.out.println(hands[0].getDeckSize());
         System.out.println(hands[1].getDeckSize());
         // ...then run the event loop
-        //this.runEventLoop();
+        this.runEventLoop();
+        
+        System.out.println("after:");
+        
+        System.out.println(hands[0].getDeckSize());
+        System.out.println(hands[1].getDeckSize());
     }
     
     /**
@@ -36,21 +45,36 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
-         ArrayList<Card> battlingCards = new ArrayList<Card>();
-         
-         if(mainD.hands[1].cards.get(mainD.hands[1].cards.size()-1) > mainD.hands[0].get(mainD.hands[0].cards.size()-1)){
-             
-             battlingCards.add(Deck.hands[1].cards.get(this.cards.size-1));
-                 
-         } else{
-             if (Deck.halves[1].cards.get(this.cards.size-1) > Deck.hands[0].get(this.cards.size-1)){
-                 
-                 battlingCards.add(Deck.hands[1].cards.get(this.cards.size-1));
-                 
-                 
-                 
-             }
-         }
+        // adds cards to the array and appends the winner
+        if(hands[0].getCard().getRank() > hands[1].getCard().getRank()){
+            
+            addCardsToCardAdder();
+           
+            hands[0].addCardGroup(battlingCards);
+               
+        } else{
+            if(hands[1].getCard().getRank() > hands[0].getCard().getRank()){
+                
+                addCardsToCardAdder();
+                
+                hands[1].addCardGroup(battlingCards);
+            } else{
+                
+                //WAR STARTS
+            }
+        }
+        
+        if (hands[0].getDeckSize() == 0){
+            //p;ayer[0] win
+        }
+        if (hands[1].getDeckSize() == 0){
+            //p;ayer[1] win
+        }
+    }
+    
+    public void addCardsToCardAdder(){
+        battlingCards.add(hands[1].dealCardFromDeck());
+        battlingCards.add(hands[1].dealCardFromDeck());
     }
     
     /**
