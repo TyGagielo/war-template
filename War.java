@@ -13,10 +13,13 @@ public class War
      * Include your initialization here -- card decks, shuffling, etc
      * Run the event loop after you've done the initializations
      */
+    
+    private Deck mainD;
+        
     public War()
     {
         // Initializations here...
-        Deck mainD = new Deck();
+        mainD = new Deck();
         
         mainD.initializeNewDeck();
         
