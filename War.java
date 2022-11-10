@@ -38,7 +38,7 @@ public class War
     public void runEventLoop() {
          ArrayList<Card> battlingCards = new ArrayList<Card>();
          
-         if(Deck.halves[1].cards.get(this.cards.size-1) > Deck.hands[0].get(this.cards.size-1)){
+         if(mainD.hands[1].cards.get(mainD.hands[1].cards.size()-1) > mainD.hands[0].get(mainD.hands[0].cards.size()-1)){
              
              battlingCards.add(Deck.hands[1].cards.get(this.cards.size-1));
                  
