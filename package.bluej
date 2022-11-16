@@ -1,17 +1,17 @@
 #BlueJ package file
-dependency1.from=War
-dependency1.to=Deck
+dependency1.from=Deck
+dependency1.to=Card
 dependency1.type=UsesDependency
 dependency2.from=War
 dependency2.to=Card
 dependency2.type=UsesDependency
-dependency3.from=Deck
-dependency3.to=Card
+dependency3.from=War
+dependency3.to=Deck
 dependency3.type=UsesDependency
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
+editor.fx.0.height=737
+editor.fx.0.width=800
+editor.fx.0.x=254
+editor.fx.0.y=202
 objectbench.height=93
 objectbench.width=776
 package.divider.horizontal=0.6

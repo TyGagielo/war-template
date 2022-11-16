@@ -32,7 +32,7 @@ public class War
         System.out.println(hands[0].getDeckSize());
         System.out.println(hands[1].getDeckSize());
         // ...then run the event loop
-        this.runEventLoop();
+        this.runEventLoop(1);
         
         System.out.println("after:");
         
@@ -44,7 +44,10 @@ public class War
      * This is the game's event loop. The code in here should come
      * from the War flowchart you created for this game
      */
-    public void runEventLoop() {
+    public void runEventLoop(int loops) {
+        //for Loop test
+        
+        for (int tst = 0; tst < loops; tst++){
         // adds cards to the array and appends the winner
         if(hands[0].getCard().getRank() > hands[1].getCard().getRank()){
             
@@ -58,9 +61,12 @@ public class War
                 addCardsToCardAdder();
                 
                 hands[1].addCardGroup(battlingCards);
-            } else{
                 
-                //WAR STARTS
+            } else{                
+                for (int i = 0; i < 2; i++){
+                    
+                    addCardsToCardAdder();
+                }
             }
         }
         
@@ -70,11 +76,13 @@ public class War
         if (hands[1].getDeckSize() == 0){
             //p;ayer[1] win
         }
+        
+        }
     }
     
     public void addCardsToCardAdder(){
         battlingCards.add(hands[1].dealCardFromDeck());
-        battlingCards.add(hands[1].dealCardFromDeck());
+        battlingCards.add(hands[0].dealCardFromDeck());
     }
     
     /**

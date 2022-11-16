@@ -71,11 +71,11 @@ public class Deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
-        Card bottomC = this.cards.get(0);
+        Card topC = this.cards.get(0);
         
         this.cards.remove(0);
         
-        return bottomC;
+        return topC;
     }
     
     /**
