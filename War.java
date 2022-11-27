@@ -45,44 +45,83 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop(int loops) {
-        //for Loop test
+        //while Loop test 1
         
-        for (int tst = 0; tst < loops; tst++){
-        // adds cards to the array and appends the winner
-        if(hands[0].getCard().getRank() > hands[1].getCard().getRank()){
+        int loopNum = 1;
+        
+        while (hands[0].getDeckSize() != 0 && hands[1].getDeckSize() != 0 && hands[0].getDeckSize()+hands[1].getDeckSize() <= 54){
+            // adds cards to the array and appends the winner
             
-            addCardsToCardAdder();
-           
-            hands[0].addCardGroup(battlingCards);
-               
-        } else{
-            if(hands[1].getCard().getRank() > hands[0].getCard().getRank()){
+            if(hands[0].getCard().getRank() > hands[1].getCard().getRank()){
                 
                 addCardsToCardAdder();
+               
+                hands[0].addCardGroup(battlingCards);
                 
-                hands[1].addCardGroup(battlingCards);
+                arrayListClear(battlingCards);
                 
-            } else{                
-                for (int i = 0; i < 2; i++){
+                //see where extra cards come from
+                System.out.println("Size After Addition:");
+                System.out.println(hands[0].getDeckSize());
+                System.out.println(hands[1].getDeckSize());
+                
+            } else{
+                if(hands[1].getCard().getRank() > hands[0].getCard().getRank()){
                     
                     addCardsToCardAdder();
+                    
+                    hands[1].addCardGroup(battlingCards);
+                    
+                    arrayListClear(battlingCards);
+                    
+                    //see where extra cards come from
+                    System.out.println("Size After Addition:");
+                    System.out.println(hands[0].getDeckSize());
+                    System.out.println(hands[1].getDeckSize());
+                    
+                } else{                
+                    for (int i = 0; i < 2; i++){
+                        
+                        addCardsToCardAdder();
+                    }
                 }
             }
+            
+            System.out.println("Battle #" + loopNum);
+            loopNum++;
         }
+        
         
         if (hands[0].getDeckSize() == 0){
             //p;ayer[0] win
+            System.out.println("Player 1 WINS");
         }
         if (hands[1].getDeckSize() == 0){
             //p;ayer[1] win
-        }
-        
+            System.out.println("Player 2 WINS");
         }
     }
     
+    /**
+     * Adds cards to an arrayList and removes them
+     */
     public void addCardsToCardAdder(){
         battlingCards.add(hands[1].dealCardFromDeck());
         battlingCards.add(hands[0].dealCardFromDeck());
+        
+        //make sure deletion's doing its fuking job
+        System.out.println("Size After Deletion:");
+        System.out.println(hands[0].getDeckSize());
+        System.out.println(hands[1].getDeckSize());
+    }
+    
+    /**
+     * Removes all Cards in an arrayList
+     */
+    public void arrayListClear(ArrayList<Card> full){
+        for (int i = 0; i <= full.size(); i++){
+            full.remove(0);
+        }
     }
     
     /**
