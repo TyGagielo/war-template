@@ -102,12 +102,4 @@ public class Deck
     public void addCardGroup(ArrayList<Card> battlers){
         cards.addAll(battlers);
     }
-    
-    /**
-     * deletes cards from both decks
-     */
-    public void deleteCards(Card c){
-        
-    }
-    
 }
