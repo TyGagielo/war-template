@@ -26,6 +26,8 @@ public class War
         
         mainD.initializeNewDeck();
         
+        mainD.shuffle();
+        
         hands = mainD.dealDeck();
         
         System.out.println("before:");
@@ -49,7 +51,7 @@ public class War
         
         int loopNum = 1;
         
-        while (hands[0].getDeckSize() != 0 && hands[1].getDeckSize() != 0 && hands[0].getDeckSize()+hands[1].getDeckSize() <= 54){
+        while (hands[0].getDeckSize() != 0 && hands[1].getDeckSize() != 0 && loopNum <= 3000){
             // adds cards to the array and appends the winner
             
             if(hands[0].getCard().getRank() > hands[1].getCard().getRank()){
@@ -92,13 +94,13 @@ public class War
         }
         
         
-        if (hands[0].getDeckSize() == 0){
+        if (hands[0].getDeckSize() == 0 || hands[0].getDeckSize() < hands[1].getDeckSize()){
             //p;ayer[0] win
-            System.out.println("Player 1 WINS");
-        }
-        if (hands[1].getDeckSize() == 0){
-            //p;ayer[1] win
             System.out.println("Player 2 WINS");
+        }
+        if (hands[1].getDeckSize() == 0 || hands[1].getDeckSize() < hands[0].getDeckSize()){
+            //p;ayer[1] win
+            System.out.println("Player 1 WINS");
         }
     }
     
@@ -108,18 +110,17 @@ public class War
     public void addCardsToCardAdder(){
         battlingCards.add(hands[1].dealCardFromDeck());
         battlingCards.add(hands[0].dealCardFromDeck());
-        
-        //make sure deletion's doing its fuking job
-        System.out.println("Size After Deletion:");
-        System.out.println(hands[0].getDeckSize());
-        System.out.println(hands[1].getDeckSize());
     }
     
     /**
      * Removes all Cards in an arrayList
      */
     public void arrayListClear(ArrayList<Card> full){
-        for (int i = 0; i <= full.size(); i++){
+        
+        int maxSize = full.size();
+        
+        for (int i = 0; i < maxSize; i++){
+            
             full.remove(0);
         }
     }
