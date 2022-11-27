@@ -1,3 +1,4 @@
+import java.util.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -44,8 +45,7 @@ public class Deck
      * Shuffles the cards in the deck
      */
     public void shuffle() {
-        // To be written
-        
+        Collections.shuffle(cards);
     }
     
     /**
