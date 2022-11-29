@@ -110,7 +110,7 @@ public class War
             //p;ayer[1] win
             System.out.println("Player 1 WINS");
         } else{
-            System.out.println("Nobody wins.");
+            System.out.println("It's a TIE. Nobody wins");
         }
     }
     
